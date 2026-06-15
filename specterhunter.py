@@ -31,7 +31,7 @@ if 'console_history' not in st.session_state:
     st.session_state['console_history'] = ["[SYSTEM] Security Engine initialized. Awaiting host validation command..."]
 
 # ==========================================
-# 3. MOBILE-RESPONSIVE CSS
+# 3. MOBILE-RESPONSIVE CSS (SINGLE-LINE FIX)
 # ==========================================
 st.markdown("""
     <style>
@@ -44,6 +44,23 @@ st.markdown("""
     .stApp {
         max-width: 100%;
         overflow-x: hidden;
+    }
+    
+    /* Title sizing designed to dynamically scale and stay on 1 line */
+    .main-title-text {
+        color: #667eea; 
+        margin-bottom: 0.2rem;
+        font-weight: bold;
+        font-size: calc(1.8rem + 1.5vw) !important;
+        white-space: nowrap !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .main-subtitle-text {
+        color: #764ba2; 
+        margin-top: 0px;
+        font-size: calc(0.9rem + 0.3vw) !important;
     }
     
     /* Custom card styling */
@@ -83,19 +100,6 @@ st.markdown("""
         letter-spacing: 1px;
     }
     
-    /* Console styling */
-    .console-log {
-        background-color: #000000;
-        color: #00ff00;
-        font-family: 'Courier New', monospace;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        height: 400px;
-        overflow-y: auto;
-        font-size: 0.85rem;
-        border: 1px solid #00ff00;
-    }
-    
     /* Fix for Streamlit default spacing */
     .block-container {
         padding-top: 2rem;
@@ -121,7 +125,7 @@ st.markdown("""
     .badge-high { background-color: #ffa500; color: white; }
     .badge-medium { background-color: #00ff00; color: black; }
 
-    /* Media query targeting mobile devices */
+    /* Media query targeting mobile viewports */
     @media (max-width: 768px) {
         .metric-value {
             font-size: 1.5rem;
@@ -186,8 +190,8 @@ with st.sidebar:
 # ==========================================
 st.markdown("""
 <div style="text-align: center; padding: 0 10px;">
-    <h1 style="color: #667eea; margin-bottom: 0.2rem;">🛡️ SPECTERHUNTER</h1>
-    <h4 style="color: #764ba2; margin-top: 0px;">Autonomous Host Forensics & Threat Isolation</h4>
+    <h1 class="main-title-text">🛡️ SPECTERHUNTER</h1>
+    <h4 class="main-subtitle-text">Autonomous Host Forensics & Threat Isolation</h4>
     <p style="color: #9ca3af; font-size: 0.9rem;">Real-time process monitoring, file system analysis, and automated threat neutralization</p>
 </div>
 """, unsafe_allow_html=True)
