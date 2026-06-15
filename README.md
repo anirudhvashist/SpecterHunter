@@ -19,3 +19,9 @@ SpecterHunter is an autonomous incident response platform designed to detect, an
    ```bash
    git clone [https://github.com/anirudhvashist/SpecterHunter.git](https://github.com/anirudhvashist/SpecterHunter.git)
    cd SpecterHunter
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+3. **Launch the agent:**
+   ```bash
+   streamlit run app.py
