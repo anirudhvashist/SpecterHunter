@@ -31,7 +31,7 @@ if 'console_history' not in st.session_state:
     st.session_state['console_history'] = ["[SYSTEM] Security Engine initialized. Awaiting host validation command..."]
 
 # ==========================================
-# 3. MOBILE-RESPONSIVE CSS (SINGLE-LINE FIX)
+# 3. MOBILE-RESPONSIVE CSS (FLUID TYPOGRAPHY)
 # ==========================================
 st.markdown("""
     <style>
@@ -46,21 +46,23 @@ st.markdown("""
         overflow-x: hidden;
     }
     
-    /* Title sizing designed to dynamically scale and stay on 1 line */
+    /* Fluid typography rules to prevent wrapping AND clipping */
     .main-title-text {
         color: #667eea; 
         margin-bottom: 0.2rem;
-        font-weight: bold;
-        font-size: calc(1.8rem + 1.5vw) !important;
+        font-weight: 800;
+        letter-spacing: 1px;
+        /* Scales dynamically with viewport width, perfectly sized for mobile */
+        font-size: calc(1.5rem + 3vw) !important;
         white-space: nowrap !important;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        text-align: center;
     }
 
     .main-subtitle-text {
         color: #764ba2; 
         margin-top: 0px;
-        font-size: calc(0.9rem + 0.3vw) !important;
+        font-size: calc(0.85rem + 0.5vw) !important;
+        text-align: center;
     }
     
     /* Custom card styling */
@@ -189,10 +191,10 @@ with st.sidebar:
 # 5. MAIN HEADER
 # ==========================================
 st.markdown("""
-<div style="text-align: center; padding: 0 10px;">
+<div style="text-align: center; padding: 0 5px;">
     <h1 class="main-title-text">🛡️ SPECTERHUNTER</h1>
     <h4 class="main-subtitle-text">Autonomous Host Forensics & Threat Isolation</h4>
-    <p style="color: #9ca3af; font-size: 0.9rem;">Real-time process monitoring, file system analysis, and automated threat neutralization</p>
+    <p style="color: #9ca3af; font-size: 0.9rem; text-align: center;">Real-time process monitoring, file system analysis, and automated threat neutralization</p>
 </div>
 """, unsafe_allow_html=True)
 
